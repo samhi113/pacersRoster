@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "MadeTOMMY";
+    src: url("./madeTOMMY.otf");
+}
+
+@font-face {
+    font-family: "MadeTOMMYMed";
+    src: url("./madeTOMMYMed.otf");
+}
+
+@font-face {
+    font-family: "Baskerville";
+    src: url("./baskerville.ttf");
+}
+
+body {
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#display {
+    width: 100vw;
+    height: 40vh;
+
+    display: flex;
+    align-items: center;
+}
+
+#display img {
+    width: calc(50vw + 40vh);
+    height: 40vh;
+    z-index: 2;
+    margin-left: -40vh;
+
+    object-fit: contain;
+    object-position: right center;
+}
+
+#display .playerInfo {
+    margin-left: -1px;
+    padding-left: 5vw;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: #0C2340;
+
+    font-family: "MadeTOMMYMed";
+    font-weight: bolder;
+    color: white;
+}
+
+#display .playerInfo .playerName, .playerName * {
+    color: #FFD520;
+    font-family: "MadeTOMMY";
+    font-size: calc(2vh + 2vw);
+    line-height: 0;
+
+    display: flex;
+    margin-right: 0.25em;
+
+    #firstName {
+        font-family: "Baskerville" !important;
+    }
+}
