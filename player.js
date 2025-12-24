@@ -1,3 +1,5 @@
+var motionQuery = matchMedia('(prefers-reduced-motion)');
+
 const selector = document.getElementById("rosterSelect");
 
 const playerVals = {
@@ -27,7 +29,13 @@ changePlayer("00", true);
 
 selector.addEventListener("change", (e) => {
     e.preventDefault();
-    changePlayer(e.target.value, false)
+
+    if (motionQuery.matches) {
+        changePlayer(e.target.value, true)
+    } else { 
+        changePlayer(e.target.value, false)
+    }
+    
 })
 
 async function changePlayer(val, skip) {
