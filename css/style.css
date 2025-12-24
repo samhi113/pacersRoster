@@ -13,75 +13,121 @@
     src: url("./baskerville.ttf");
 }
 
-* {
-    transition: all 1s ease-in-out !important;
+:root {
+    --blue: #0C2340;
+    --gold: #FFD520;
+    --white: #E8E8FF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: all 0s linear !important;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    nav * {
+        transition: all 0.25s ease-in-out;
+    }
 }
 
 body {
     overflow-x: hidden;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
 }
 
-#display {
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
+    height: max(calc(3vh + 1vw), 2em);
+
+    color: var(--gold);
+    border: none;
+    display: flex;
+}
+
+nav * {
+    padding: 0;
+    margin: 0;
+    height: max(calc(3vh + 1vw), 2em);
+    background-color: var(--blue);
+
+    font-family: "MadeTOMMY", "MadeTOMMYMed", "Baskerville";
+    color: var(--gold);
+    list-style-type: none;
+    text-decoration: none;
 
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
-@media screen and (orientation: portrait) {
-    #display {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    #display img {
-        margin-left: 0;
-    }
+nav ul li a {
+    width: 28.33vw;
+    background-color: transparent;
+    border-bottom: calc(0.125vh + 0.125vw) solid var(--white);
 }
 
-#display img {
-    width: calc(40vw + 40vh);
-    height: 40vh;
-    z-index: 2;
-    margin-left: calc(10vw - 10vh);
-
-    object-fit: contain;
-    object-position: right center;
+nav a:has(img) {
+    padding: 1vh 0;
+    height: max(10vh, 2em);
+    border-bottom-right-radius: 2.5vw;
+    border-bottom: calc(0.125vh + 0.125vw) solid var(--white);
+    border-right: calc(0.125vh + 0.125vw) solid var(--white);
 }
 
-#display .playerInfo {
-    margin-left: -1px;
-    padding: 0 5vw;
-    width: 90vw;
-    height: 40vh;
-    z-index: 1;
-    background-color: #0C2340;
-
-    font-family: "MadeTOMMY";
-    color: white;
-    font-size: calc(1.25vh + 1.25vw);
+nav a img {
+    padding: 1vh;
+    width: calc(15vw - 2vh);
+    height: max(10vh, 2em);
+    border-bottom-right-radius: 2.5vw;
+    image-rendering: crisp-edges;
+    background-color: transparent;
 }
 
-#display .playerInfo .playerName, .playerName * {
-    color: #FFD520;
-    font-family: "MadeTOMMYMed";
-    font-size: calc(3vw + 1vh);
-    line-height: 0;
+nav a:hover {
+    background-color: var(--gold);
+    color: var(--blue);
+    font-size: 1.25em;
+    font-weight: bold;
+    border-color: var(--blue);
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 5vh;
+    background-color: var(--white);
 
     display: flex;
-    margin-right: 0.25em;
+    align-items: center;
+    justify-content: center;
+}
 
-    #firstName {
-        font-family: "Baskerville" !important;
-    }
+footer svg, footer svg * {
+    width: calc(2vw + 1vh);
+    max-height: 3vh;
+    margin-right: 1vh;
+    fill: #222;
+}
+
+footer p, footer p a {
+    color: #222;
+    text-decoration: none;
+    font-size: min(1.5vh, calc(0.75vw + 0.75vh));
+    font-family: Helvetica, "MadeTOMMY", Arial, sans-serif;
+}
+
+footer p a {
+    font-weight: bold;
 }

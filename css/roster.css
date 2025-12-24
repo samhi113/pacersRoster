@@ -1,0 +1,166 @@
+@font-face {
+    font-family: "MadeTOMMY";
+    src: url("./madeTOMMY.otf");
+}
+
+@font-face {
+    font-family: "MadeTOMMYMed";
+    src: url("./madeTOMMYMed.otf");
+}
+
+@font-face {
+    font-family: "Baskerville";
+    src: url("./baskerville.ttf");
+}
+
+:root {
+    --blue: #0C2340;
+    --gold: #FFD520;
+    --white: #E8E8FF;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: all 0s linear !important;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        transition: all 1.5s ease-in-out;
+    }
+}
+
+main {
+    overflow-x: hidden;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdownSec {
+    width: 40vw;
+    height: 30vh;
+    padding: 5vh 30vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--blue);
+    
+    font-size: calc(0.667vh + 0.667vw);
+    font-family: "MadeTOMMY", "MadeTOMMYMed", "Baskerville";
+    color: var(--gold);
+}
+
+.dropdownSec h2 {
+    font-size: 2.56vw;
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    padding: 0.25em;
+    appearance: none;
+    border: 1px solid var(--white);
+    border-radius: 100vw;
+    
+    font-size: calc(1vh + 1vw);
+    line-height: 1em;
+    font-family: "MadeTOMMY", "MadeTOMMYMed", "Baskerville";
+}
+
+option {
+    appearance: menulist-button;
+    font-size: 0.66em;
+    color: var(--blue);
+}
+
+select option:hover, select option:checked, select:focus option:checked, select:focus option:focus {
+    
+    appearance: menulist-button;
+    background: var(--blue);
+    box-shadow: 0 0 100% 100% var(--blue) inset;
+    color: var(--white);
+}
+
+#display {
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+}
+
+#display img {
+    width: calc(40vw + 40vh);
+    height: calc(25vh + 10vw);
+    z-index: 2;
+    margin-left: calc(5vh - 10vw);
+
+    object-fit: contain;
+    object-position: right center;
+}
+
+#display .playerInfo {
+    margin-left: -1px;
+    padding: 0 5vw;
+    width: 90vw;
+    height: calc(25vh + 10vw);
+    z-index: 1;
+    background-color: var(--blue);
+
+    font-family: "MadeTOMMY";
+    color: var(--white);
+    font-size: calc(1.25vh + 1vw);
+    line-height: 1.25em;
+}
+
+#display .playerInfo .playerName, .playerName * {
+    color: var(--gold);
+    font-family: "MadeTOMMYMed";
+    font-size: calc(3vw + 1vh) !important;
+    line-height: 0;
+
+    display: flex;
+    margin-right: 0.25em;
+    margin-bottom: 0.125em;
+
+    #firstName {
+        font-family: "Baskerville" !important;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .dropdownSec {
+        width: 80vw;
+        padding: 5vh 10vw;
+        font-size: calc(0.5vh + 2vw);
+    }
+
+    .dropdownSec h2 {
+        font-size: 5.1vw;
+    }
+
+    option {
+        font-size: 1em;
+    }
+
+    #display {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #display * {
+        font-size: calc(1.5vh + 0.5vw);
+    }
+
+    #display img {
+        margin-left: 0;
+        border-right: 20vw solid var(--blue);
+    }
+}
